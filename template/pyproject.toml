@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "your-mcp-server"
+version = "0.1.0"
+description = "Beschreibung deines MCP-Servers — was macht er?"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Your Name", email = "your@email.com"},
+]
+keywords = ["mcp", "ai", "agent", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "mcp>=1.0.0",        # MCP SDK (FastMCP)
+    "httpx>=0.27.0",     # Async HTTP Client
+    "python-dotenv>=1.0.0",  # Umgebungsvariablen aus .env laden
+]
+
+# WICHTIG: Hier wird der CLI-Befehl registriert
+# Nach `pip install` kann man den Server mit `your-mcp-server` starten
+[project.scripts]
+your-mcp-server = "your_mcp_server.server:main"
+
+[project.urls]
+Homepage = "https://github.com/your-github-username/your-mcp-server"
+Repository = "https://github.com/your-github-username/your-mcp-server"
+Issues = "https://github.com/your-github-username/your-mcp-server/issues"
+
+# WICHTIG: Hatch muss wissen, wo die Python-Packages liegen
+# Ohne das findet der Build-Prozess deine Module nicht
+[tool.hatch.build.targets.wheel]
+packages = ["src/your_mcp_server"]

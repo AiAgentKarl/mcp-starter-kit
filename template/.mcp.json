@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "your-mcp-server": {
+            "command": "uv",
+            "args": [
+                "run",
+                "--with",
+                ".",
+                "your-mcp-server"
+            ]
+        }
+    }
+}
